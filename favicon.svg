@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="ClearviewPools">
+  <title>ClearviewPools</title>
+  <rect width="32" height="32" rx="7" fill="#0b3a5d"/>
+  <circle cx="22" cy="9.5" r="3.4" fill="#ffd166"/>
+  <path d="M3 18c3 0 3-2.6 6-2.6S12 18 15 18s3-2.6 6-2.6S24 18 27 18" fill="none" stroke="#38d0e8" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M3 23.5c3 0 3-2.6 6-2.6s3 2.6 6 2.6 3-2.6 6-2.6 3 2.6 6 2.6" fill="none" stroke="#7ae7f5" stroke-width="2.2" stroke-linecap="round" opacity=".8"/>
+</svg>
