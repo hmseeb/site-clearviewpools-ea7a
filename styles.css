@@ -229,7 +229,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .primary-nav { display: flex; align-items: center; gap: 1.75rem; }
 .primary-nav > ul { display: flex; align-items: center; gap: 1.5rem; }
-.primary-nav a {
+.primary-nav > ul a {
   color: var(--ink);
   font-weight: 620;
   font-size: .95rem;
@@ -843,8 +843,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 @media (max-width: 1024px) {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .primary-nav { gap: 1.1rem; }
   .primary-nav > ul { gap: 1.1rem; }
-  .primary-nav a { font-size: .9rem; }
+  .primary-nav > ul a { font-size: .9rem; }
 }
 
 @media (max-width: 900px) {
