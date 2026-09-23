@@ -574,6 +574,66 @@
         <p class="cta-note">Prefer to type? Open the chat on this page and we'll reply there.</p>
       </div>
 
+      <div class="form-wrap card">
+        <form id="quoteForm" novalidate data-form-name="Free Quote Request">
+          <h3 class="form-title">Free Quote Request</h3>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="firstName">First name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="firstName" name="firstName" autocomplete="given-name" required
+                     aria-required="true" aria-describedby="err-firstName" placeholder="Jane">
+              <p class="error" id="err-firstName" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="lastName">Last name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="lastName" name="lastName" autocomplete="family-name" required
+                     aria-required="true" aria-describedby="err-lastName" placeholder="Doe">
+              <p class="error" id="err-lastName" role="alert"></p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required
+                     aria-required="true" aria-describedby="err-phone" placeholder="(915) 555-0100">
+              <p class="error" id="err-phone" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required
+                     aria-required="true" aria-describedby="err-email" placeholder="you@example.com">
+              <p class="error" id="err-email" role="alert"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Tell us about your pool</label>
+            <textarea id="message" name="message" rows="4"
+                      placeholder="Approximate size, surface type (plaster, pebble, tile), and current condition."></textarea>
+          </div>
+
+          <div class="field hp-field" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Send My Quote Request</button>
+          <p class="form-note">We reply the same business day. Your details are only used to prepare your quote.</p>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="form-thanks" id="quoteThanks" role="status" aria-live="polite" hidden>
+          <span class="thanks-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4z"/></svg>
+          </span>
+          <h3>Thank you &mdash; we've got your request!</h3>
+          <p>One of our El Paso pool techs will reach out the same business day with your flat weekly rate.</p>
+          <p class="thanks-note">Need us sooner? Call <a href="tel:+19155550142">(915) 555-0142</a>.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
