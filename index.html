@@ -575,19 +575,24 @@
       </div>
 
       <div class="form-wrap card">
-        <form id="quoteForm" novalidate data-form-name="Free Quote Request">
+        <form id="quoteForm" novalidate data-form-name="Quote request"
+              method="POST" action="https://vision.leadrai.com/api/forms/a728abd41a3ebea2c9e8b0814d1d8000">
           <h3 class="form-title">Free Quote Request</h3>
+
+          <input type="hidden" name="_form" value="Quote request">
+          <input type="hidden" name="_page" id="quotePage" value="">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
 
           <div class="field-row">
             <div class="field">
               <label for="firstName">First name <span class="req" aria-hidden="true">*</span></label>
-              <input type="text" id="firstName" name="firstName" autocomplete="given-name" required
+              <input type="text" id="firstName" name="First name" autocomplete="given-name" required
                      aria-required="true" aria-describedby="err-firstName" placeholder="Jane">
               <p class="error" id="err-firstName" role="alert"></p>
             </div>
             <div class="field">
               <label for="lastName">Last name <span class="req" aria-hidden="true">*</span></label>
-              <input type="text" id="lastName" name="lastName" autocomplete="family-name" required
+              <input type="text" id="lastName" name="Last name" autocomplete="family-name" required
                      aria-required="true" aria-describedby="err-lastName" placeholder="Doe">
               <p class="error" id="err-lastName" role="alert"></p>
             </div>
@@ -610,13 +615,8 @@
 
           <div class="field">
             <label for="message">Tell us about your pool</label>
-            <textarea id="message" name="message" rows="4"
+            <textarea id="message" name="Message" rows="4"
                       placeholder="Approximate size, surface type (plaster, pebble, tile), and current condition."></textarea>
-          </div>
-
-          <div class="field hp-field" aria-hidden="true">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
           </div>
 
           <button type="submit" class="btn btn-primary btn-lg btn-block">Send My Quote Request</button>

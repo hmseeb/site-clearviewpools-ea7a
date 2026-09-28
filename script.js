@@ -98,15 +98,15 @@
     });
   }
 
-  /* ---------- Quote / contact forms -> GoHighLevel ---------- */
-  var LEAD_ENDPOINT = '/api/ghl-lead';
+  /* ---------- Quote / contact forms -> LeadrVision ---------- */
+  var LEAD_ENDPOINT = 'https://vision.leadrai.com/api/forms/a728abd41a3ebea2c9e8b0814d1d8000';
 
   var RULES = {
-    firstName: {
+    'First name': {
       test: function (v) { return v.trim().length >= 2; },
       message: 'Please enter your first name.'
     },
-    lastName: {
+    'Last name': {
       test: function (v) { return v.trim().length >= 1; },
       message: 'Please enter your last name.'
     },
@@ -124,6 +124,11 @@
   };
 
   function setupLeadForm(form) {
+    /* Keep the hidden _page field pointing at the current URL so the
+       visitor is returned to this page after a plain HTML submission. */
+    var pageEl = form.querySelector('[name="_page"]');
+    if (pageEl) { pageEl.value = window.location.href; }
+
     var statusEl = form.querySelector('.form-status');
     var submitBtn = form.querySelector('button[type="submit"]');
     var thanksEl = form.parentNode ? form.parentNode.querySelector('.form-thanks') : null;
@@ -172,11 +177,6 @@
       statusEl.className = 'form-status';
     }
 
-    function value(name) {
-      var el = fieldEl(name);
-      return el ? el.value.trim() : '';
-    }
-
     function showThanks() {
       if (!thanksEl) {
         showStatus('Thank you! Your request is in — we’ll reach out the same business day.', 'success');
@@ -190,6 +190,12 @@
         thanksEl.setAttribute('tabindex', '-1');
         thanksEl.focus();
       }
+    }
+
+    /* Returning from a plain (no-JavaScript) submission: ?submitted=1 */
+    if (/[?&]submitted=1(&|$)/.test(window.location.search)) {
+      showThanks();
+      return;
     }
 
     form.addEventListener('submit', function (e) {
@@ -214,15 +220,15 @@
         return;
       }
 
-      var payload = {
-        firstName: value('firstName'),
-        lastName: value('lastName'),
-        phone: value('phone'),
-        email: value('email'),
-        message: value('message'),
-        company: value('company'),
-        formName: form.getAttribute('data-form-name') || form.id || 'Website Form'
-      };
+      /* Send every named field through with its human-readable name. */
+      var payload = {};
+      Array.prototype.forEach.call(form.elements, function (el) {
+        if (!el.name || el.disabled || el.type === 'submit' || el.type === 'button') { return; }
+        payload[el.name] = typeof el.value === 'string' ? el.value.trim() : el.value;
+      });
+      payload._form = payload._form ||
+        form.getAttribute('data-form-name') || form.id || 'Website Form';
+      payload._page = window.location.href;
 
       var originalLabel = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) {
